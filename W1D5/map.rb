@@ -19,6 +19,6 @@ class Map
   end
 
   def show
-    @array_map.to_a
+    @array_map.to_a.dup
   end
 end
