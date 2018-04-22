@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Simon
   COLORS = %w(red blue green yellow)
 
@@ -24,18 +26,21 @@ class Simon
 
   def show_sequence
     add_random_color
+    p seq.last
+    sleep(1)
+    system("clear")
   end
 
   def require_sequence
-    sequence_lengths.times do
+    sequence_length.times do |idx|
       puts "Guess a color(eg: red, blue, green, yellow)"
       input = gets.chomp
-      self.game_over = check_guess(n,input) ? false : true
+      self.game_over = check_guess?(idx,input) ? false : true
     end
   end
 
-  def check_guess?(n,input)
-    seq[n] == input?
+  def check_guess?(idx,input)
+    seq[idx] == input
   end
 
   def add_random_color
@@ -57,7 +62,7 @@ class Simon
   end
 end
 
-if __FIlE__==$PROGRAM_NAME
+if __FILE__== $PROGRAM_NAME
   game = Simon.new
   game.play
 end
