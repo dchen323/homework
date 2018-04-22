@@ -34,7 +34,7 @@ class Simon
     end
   end
 
-  def check_guess(n,input)
+  def check_guess?(n,input)
     seq[n] == input?
   end
 
