@@ -19,6 +19,7 @@ class Board
   end
 
   def valid_move?(start_pos)
+    raise ArgumentError if cups[start_pos].empty?
     unless start_pos.between?(1,13)
       raise "Invalid starting cup"
     end
@@ -31,11 +32,12 @@ class Board
     until stones.empty?
       next_cup += 1
       next_cup = 0 if next_cup > 13
-      if next_cup == 6
-        cups[6] << stones.pop if current_player_name == name1
-      elsif next_cup == 13
-        cups[13] << stones.pop if current_player_name == name2
+      if next_cup == 6 && current_player_name == name1
+        cups[6] << stones.pop
+      elsif next_cup == 13 && current_player_name == name2
+        cups[13] << stones.pop
       else
+        next if next_cup == 6 || next_cup == 13
         cups[next_cup] << stones.pop
       end
     end
@@ -44,8 +46,10 @@ class Board
 
   end
 
-  def next_turn(ending_cup_idx)
-
+  def next_turn(current_cup)
+    return :prompt if current_cup == 6 || current_cup == 13
+    return :switch if cups[current_cup].length == 1
+    current_cup
   end
 
   def render
@@ -63,7 +67,13 @@ class Board
 
 
   def winner
-
+    name1_score = cups[6].count
+    name2_score = cups[13].count
+    if name1_score == name2_score
+      :draw
+    else
+      return (name1_score > name2_score) ? name1 : name2
+    end
   end
 
   private
