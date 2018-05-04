@@ -126,5 +126,5 @@ class MetaCorgiSnacks
       result = "#{name}: #{info}: #{tastiness} "
       tastiness > 30 ? "* #{result}" : result
     end
-  end
+  end  
 end
