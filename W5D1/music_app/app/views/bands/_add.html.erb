@@ -1,0 +1,20 @@
+<%if type == :new%>
+  <h3> Create a band </h3>
+  <%action_url = bands_url%>
+  <%button_type = "Create Band"%>
+<%else%>
+  <h3> Edit a band name </h3>
+  <%action_url = band(@band)%>
+  <%button_type = "Edit Band"%>
+
+<%end%>
+
+<form action ="<%=action_url%>" method="post">
+  <%if type == :edit%>
+    <input type="hidden", name="_method" method="patch">
+  <%end%>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="name">Band:</label>
+    <input type='text' name="band[name]" value="<%=@band.name%>">
+  <input type="submit" value="<%=button_type%>">
+</form>

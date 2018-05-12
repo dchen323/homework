@@ -1,0 +1,11 @@
+<ul>
+  <%if type == :index%>
+    <li> <a href="<%= band_url(band)%>"><%=band.name%></a></li>
+  <%else%>
+    <li><%=band.name%></li>
+  <%end%>
+</ul>
+
+<%if type== :show%>
+  <a href="<%=bands_url%>">Index Page</a>
+<%end%>
