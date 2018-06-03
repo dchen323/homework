@@ -1,0 +1,80 @@
+html, body, header, nav, h3, p, a, img, content, span, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+
+.nav-bar {
+  background: white;
+  color: black;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 2;
+}
+
+.nav-icon{
+  margin-left: 20px;
+  position: relative;
+  padding-top: 5px;
+  font-size: 25px;
+}
+
+.nav-user{
+  margin-right: 30px;
+}
+
+.nav-log {
+  margin: 3px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  position: relative;
+}
+
+.picture {
+  width: 100%;
+}
+
+.content {
+  background: transparent;
+  margin: 10px;
+  padding: 50px;
+  height: 300px;
+  width: 250px;
+  position: absolute;
+  top: 35%;
+  right: 30px;
+  font-size: 30px;
+  display: inline-grid;
+  border: 5px solid black;
+  border-radius: 10%;
+}
+
+.content-sign {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign {
+  padding: 5px;
+}
+
+.username {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.login{
+  padding: 30px 0;
+}
