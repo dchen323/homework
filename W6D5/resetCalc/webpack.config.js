@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require("path");
 
 module.exports = {
   context: __dirname,
@@ -8,19 +8,21 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: [/\.jsx?$/, /\.js?$/],
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'env']
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          query: {
+            presets: ["env", "react"]
+          }
         }
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   resolve: {
-    extensions: [".js", '.jsx', '*']
+    extensions: [".js", ".jsx", "*"]
   }
 };
